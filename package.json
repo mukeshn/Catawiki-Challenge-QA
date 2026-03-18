@@ -1,0 +1,27 @@
+{
+  "name": "catawiki-qa-automation",
+  "version": "1.0.0",
+  "description": "E2E test automation for Catawiki marketplace using Playwright + TypeScript",
+  "scripts": {
+    "test": "npx playwright test --project=chromium",
+    "test:headed": "npx playwright test --project=chromium --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:smoke": "npx playwright test --grep @smoke --project=chromium",
+    "test:regression": "npx playwright test --grep @regression --project=chromium",
+    "test:all-browsers": "npx playwright test",
+    "report": "npx playwright show-report",
+    "lint": "eslint src/ --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": ["playwright", "automation", "catawiki", "e2e", "testing"],
+  "author": "Mukesh Ningadali",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.16.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  }
+}

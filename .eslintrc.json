@@ -1,0 +1,11 @@
+{
+  "plugins": ["playwright"],
+  "extends": [
+    "plugin:playwright/recommended"
+  ],
+  "rules": {
+    "playwright/no-wait-for-timeout": "warn",
+    "playwright/no-force-option": "warn"
+  },
+  "ignorePatterns": ["dist/", "node_modules/"]
+}
