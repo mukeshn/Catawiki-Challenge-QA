@@ -1,4 +1,4 @@
-# Catawiki QA Automation
+# Catawiki QA Automation - Prepared by Mukesh Ningadali
 
 E2E tests for [Catawiki](https://www.catawiki.com) using Playwright + TypeScript.
 
