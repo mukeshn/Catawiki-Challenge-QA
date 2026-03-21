@@ -9,11 +9,9 @@ export class Header {
   constructor(page: Page) {
     this.page = page;
 
-    // there's also a language switcher combobox — the placeholder name tells them apart
-    this.searchInput = page
-      .getByRole("combobox", { name: /brand|artist/i })
-      .or(page.locator('input[type="search"]'));
-
+    // use data-testid for a stable, unique reference to the header search field
+    // (avoids or() falling back to a broad selector that can resolve to a hidden input)
+    this.searchInput = page.locator('[data-testid="search-field"]');
     this.searchButton = page.getByRole("button", { name: "Search" }).first();
     this.logo = page.getByRole("link", { name: "homepage" }).first();
   }
