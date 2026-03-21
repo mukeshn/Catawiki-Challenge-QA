@@ -6,6 +6,26 @@ Built as part of a QA take-home assignment. The main scenario — search "train"
 
 ---
 
+## Quick Start (for reviewers)
+
+> **Prerequisite:** Node.js 18+ and **Google Chrome** must be installed.
+
+```bash
+npm install
+npx playwright install chromium
+npm test
+```
+
+That's it. The full suite runs in headless Chrome and takes around 3–5 minutes. When done, open the HTML report with:
+
+```bash
+npm run report
+```
+
+> **Note:** Tests run against the live Catawiki site, so results depend on live lot availability. If a test fails due to a lot being closed, re-running it almost always passes.
+
+---
+
 ## Stack
 
 - **Playwright** (v1.49) + **TypeScript**
@@ -45,9 +65,8 @@ npx playwright install
 ```bash
 npm test                   # all tests, Chrome headless
 npm run test:headed        # same but you can watch the browser
-npm run test:smoke         # @smoke tags only (5 tests, ~1 min)
-npm run test:regression    # @regression tags
-npm run test:all-browsers  # Chrome + Firefox + mobile Chrome
+npm run test:smoke         # @smoke tags only (~5 tests, ~1 min)
+npm run test:regression    # @regression tags only
 npm run report             # open the last HTML report
 ```
 

@@ -14,7 +14,6 @@ export default defineConfig({
   },
   use: {
     baseURL: "https://www.catawiki.com",
-    headless: !!process.env.CI,   // headed locally, headless in CI
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
@@ -30,20 +29,6 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         // real Chrome avoids bot detection that blocks Playwright's bundled Chromium
-        channel: "chrome",
-        launchOptions: {
-          args: ["--disable-blink-features=AutomationControlled"],
-        },
-      },
-    },
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
-    },
-    {
-      name: "mobile-chrome",
-      use: {
-        ...devices["Pixel 5"],
         channel: "chrome",
         launchOptions: {
           args: ["--disable-blink-features=AutomationControlled"],
