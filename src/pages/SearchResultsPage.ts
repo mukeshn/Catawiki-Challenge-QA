@@ -10,7 +10,7 @@ export class SearchResultsPage extends BasePage {
     super(page);
     this.header = new Header(page);
 
-    // search results link directly to /l/ pages; homepage tiles wrap <article>
+    // covers both search result and homepage tile layouts
     this.lotCards = page
       .locator('main a[href*="/l/"]')
       .or(page.locator("main a:has(> article)"));

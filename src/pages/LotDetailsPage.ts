@@ -27,10 +27,10 @@ export class LotDetailsPage extends BasePage {
 
     this.lotTitle = page.locator("h1").first();
 
-    // Favourites button is right after h1; its text content is the count (e.g. "32")
+    // faves count sits in the button next to the h1
     this.favoritesCounter = page.locator("h1 + * > button:has(img)").first();
 
-    // Gallery images use sequential alt text: "Lot Title #1.0", "#2.1", etc.
+    // gallery images always have # in the alt text
     this.lotImages = page.locator('main img[alt*="#"]');
 
     this.sellerInfo = page.locator("text=/Selected by/i").first();
@@ -66,8 +66,9 @@ export class LotDetailsPage extends BasePage {
     const currentBid = await this.bidPanel.getCurrentBidText();
     const currentBidNumeric = parseCurrencyAmount(currentBid);
 
-    console.log(`Lot Name: ${name}`);
-    console.log(`Favourites: ${favoritesCount}`);
+    console.log(`\n--- Lot Details ---`);
+    console.log(`Lot Name:    ${name}`);
+    console.log(`Favourites:  ${favoritesCount}`);
     console.log(`Current Bid: ${currentBid}`);
 
     return { name, favoritesCount, currentBid, currentBidNumeric };

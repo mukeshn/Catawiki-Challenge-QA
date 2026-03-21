@@ -3,7 +3,7 @@ import { HomePage } from "../pages/HomePage";
 import { SearchResultsPage } from "../pages/SearchResultsPage";
 import { LotDetailsPage } from "../pages/LotDetailsPage";
 
-// page object fixtures shared across tests
+// page objects injected via fixtures so tests don't need to instantiate them manually
 type Fixtures = {
   homePage: HomePage;
   searchResultsPage: SearchResultsPage;

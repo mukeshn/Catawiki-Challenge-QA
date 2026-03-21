@@ -9,8 +9,7 @@ export class Header {
   constructor(page: Page) {
     this.page = page;
 
-    // Two comboboxes exist: search bar and language switcher.
-    // The accessible name "brand, artist..." distinguishes them reliably.
+    // there's also a language switcher combobox — the placeholder name tells them apart
     this.searchInput = page
       .getByRole("combobox", { name: /brand|artist/i })
       .or(page.locator('input[type="search"]'));

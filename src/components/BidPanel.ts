@@ -12,7 +12,7 @@ export class BidPanel {
   constructor(page: Page) {
     this.page = page;
 
-    // locate bid amount next to the "Current bid" label
+    // grab the amount sitting next to the "Current bid" label
     this.currentBidAmount = page.locator(':text-is("Current bid") + *').first();
 
     this.placeBidButton = page.getByRole("button", { name: /place bid/i });
@@ -46,7 +46,7 @@ export class BidPanel {
 
   async getBidSuggestionValues(): Promise<string[]> {
     const count = await this.bidSuggestionChips.count();
-    // panel appears in main and sticky header, dedupe by value
+    // panel renders in both main and sticky versions, dedup by value
     const seen = new Set<string>();
     for (let i = 0; i < count; i++) {
       const text = await this.bidSuggestionChips.nth(i).textContent();
